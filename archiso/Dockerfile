@@ -4,7 +4,7 @@ LABEL maintainer="Filipe Coelho <falktx@moddevices.com>"
 
 
 RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
-COPY ../zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
+COPY zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
 
 # force new keyring, required for installing anything
 RUN pacman -Sy --noconfirm archlinux-keyring && \
