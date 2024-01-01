@@ -49,7 +49,6 @@ jobs:
       - name: Extract workdir-toolchain-${{ env.CACHE_VERSION }}
         shell: bash
         run: |
-          mkdir -p ${{ env.WORKDIR }}
           sudo tar -C ${{ env.WORKDIR }} -x --overwrite -f ~/workdir-toolchain-${{ env.CACHE_VERSION }}.tar.gz
       - name: make bootstrap
         run: |
@@ -114,7 +113,7 @@ jobs:
           key: docker-layer-for-plugins-${{ env.CACHE_VERSION }}
       - name: make plugins-bootstrap
         run: |
-          mkdir -p ${{ env.WORKDIR }}
+          # mkdir -p ${{ env.WORKDIR }}
           make plugins-bootstrap
 
   plugins:
