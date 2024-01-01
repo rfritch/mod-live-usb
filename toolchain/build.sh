@@ -18,6 +18,8 @@ docker build --build-arg=GROUP_ID=$(id -g) --build-arg=USER_ID=$(id -u) -t mpb-t
 
 #######################################################################################################################
 # make sure workdir exists before we try to map it
+echo $USER_ID
+echo $USER
 
 mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
 #mkdir -p ${WORKDIR}
