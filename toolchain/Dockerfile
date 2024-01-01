@@ -48,7 +48,7 @@ USER $USER
 WORKDIR $HOME
 
 # create directory for build
-RUN mkdir $HOME/mod-workdir
+#RUN mkdir $HOME/mod-workdir
 
 # mod-plugin-builder settings
 ENV MPB_GIT_URL https://github.com/moddevices/mod-plugin-builder
