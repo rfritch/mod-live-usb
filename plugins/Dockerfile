@@ -38,7 +38,7 @@ ARG MPB_COMMIT_HASH_FOR_PLUGINS=unset
 RUN git checkout . && git checkout master && git pull && git checkout $MPB_COMMIT_HASH_FOR_PLUGINS && git submodule update
 
 # re-run bootstrap in case dependencies need update
-RUN ./bootstrap.sh generic-x86_64 && ./.clean-install.sh generic-x86_64
+RUN ./bootstrap.sh $PLAT && ./.clean-install.sh $PLAT
 
 # our simple script to build and copy resulting bundles
 COPY scripts/build-and-copy-bundles.sh $HOME/build-and-copy-bundles.sh
