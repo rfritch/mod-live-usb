@@ -21,9 +21,9 @@ docker build --build-arg=GROUP_ID=$(id -g) --build-arg=USER_ID=$(id -u) -t mpb-t
 echo $USER_ID
 echo $USER
 
-mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
+mkdir -p ${WORKDIR}/x86_64/build/crosstool-ng-1.25.0/build/tarballs
 #mkdir -p ${WORKDIR}
-cp  zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
+cp  zlib-1.2.13.tar.gz  ${WORKDIR}/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
 
 #######################################################################################################################
 # build the toolchain
