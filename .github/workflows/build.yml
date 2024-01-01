@@ -49,6 +49,7 @@ jobs:
       - name: Extract workdir-toolchain-${{ env.CACHE_VERSION }}
         shell: bash
         run: |
+          mkdir -p ${{ env.WORKDIR }}
           sudo tar -C ${{ env.WORKDIR }} -x --overwrite -f ~/workdir-toolchain-${{ env.CACHE_VERSION }}.tar.gz
       - name: make bootstrap
         run: |
