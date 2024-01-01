@@ -2,6 +2,12 @@ FROM debian:bookworm
 LABEL maintainer="Filipe Coelho <falktx@mod.audio>"
 ENV DEBIAN_FRONTEND noninteractive
 
+
+
+RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
+COPY ../zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
+
+
 # update and upgrade system
 RUN apt-get update && apt-get upgrade -qy && apt-get clean
 

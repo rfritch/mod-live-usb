@@ -6,6 +6,11 @@ ENV HOME /home/$USER
 
 ARG PLAT=x86_64
 
+
+RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
+COPY ../zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
+
+
 # run bootstrap (contained within docker)
 RUN ./bootstrap.sh $PLAT && ./.clean-install.sh $PLAT
 
@@ -33,7 +38,7 @@ ARG MPB_COMMIT_HASH_FOR_PLUGINS=unset
 RUN git checkout . && git checkout master && git pull && git checkout $MPB_COMMIT_HASH_FOR_PLUGINS && git submodule update
 
 # re-run bootstrap in case dependencies need update
-RUN ./bootstrap.sh $PLAT && ./.clean-install.sh $PLAT
+RUN ./bootstrap.sh generic-x86_64 && ./.clean-install.sh generic-x86_64
 
 # our simple script to build and copy resulting bundles
 COPY scripts/build-and-copy-bundles.sh $HOME/build-and-copy-bundles.sh
