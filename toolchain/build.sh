@@ -19,7 +19,8 @@ docker build --build-arg=GROUP_ID=$(id -g) --build-arg=USER_ID=$(id -u) -t mpb-t
 #######################################################################################################################
 # make sure workdir exists before we try to map it
 
-mkdir -p ${WORKDIR}
+mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
+#mkdir -p ${WORKDIR}
 cp  zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
 
 #######################################################################################################################
