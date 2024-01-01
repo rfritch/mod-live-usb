@@ -4,9 +4,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 
 
-RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
-COPY zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
-
 
 # update and upgrade system
 RUN apt-get update && apt-get upgrade -qy && apt-get clean
@@ -49,6 +46,9 @@ WORKDIR $HOME
 
 # create directory for build
 #RUN mkdir $HOME/mod-workdir
+RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
+COPY zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
+
 
 # mod-plugin-builder settings
 ENV MPB_GIT_URL https://github.com/moddevices/mod-plugin-builder
