@@ -13,7 +13,10 @@ PROJECTS += chow-centaur
 PROJECTS += collisiondrive
 PROJECTS += die-plugins
 # PROJECTS += distrho-ports
-PROJECTS += dpf-plugins
+
+#NOT BUILDING x86
+#PROJECTS += dpf-plugins
+
 PROJECTS += dragonfly-reverb
 PROJECTS += fluidplug
 PROJECTS += fomp
@@ -66,7 +69,10 @@ PROJECTS += modmeter
 PROJECTS += modspectre
 PROJECTS += notes-lv2
 PROJECTS += neural-amp-modeler-lv2
-PROJECTS += remaincalm-plugins
+
+#NOT BUILDING x86
+#PROJECTS += remaincalm-plugins
+
 PROJECTS += rkrlv2
 # PROJECTS += samplv1
 PROJECTS += schrammel-ojd
