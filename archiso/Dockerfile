@@ -22,7 +22,7 @@ RUN pacman -Syu --noconfirm arch-install-scripts dosfstools e2fsprogs libisoburn
     pacman -Scc
 
 
-RUN sudo pacman -S --overwrite '*' kparts
+RUN pacman -S --overwrite '*' kparts
 
 
 # misc setup
