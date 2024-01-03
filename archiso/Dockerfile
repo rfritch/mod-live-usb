@@ -6,10 +6,10 @@ LABEL maintainer="Filipe Coelho <falktx@moddevices.com>"
 RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
 COPY zlib-1.2.13.tar.gz  /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs/zlib-1.2.13.tar.gz 
 
-RUN echo -e "\
-[kde-unstable]\n\
-Include = /etc/pacman.d/mirrorlist \n\
-" | cat -  /etc/pacman.conf > temp && mv temp /etc/pacman.conf
+#RUN echo -e "\
+#[kde-unstable]\n\
+#Include = /etc/pacman.d/mirrorlist \n\
+#" | cat -  /etc/pacman.conf > temp && mv temp /etc/pacman.conf
 
 
 
@@ -27,7 +27,7 @@ RUN pacman pacman -Syuu --noconfirm && pacman -Scc
 
 # install packages for archiso and live-welcome
 RUN pacman -Syu --noconfirm arch-install-scripts dosfstools e2fsprogs libisoburn mtools squashfs-tools && \
-    pacman -Syu --noconfirm gcc git jack2 kparts make patch pkg-config qt5-webengine && \
+    pacman -Syu --noconfirm gcc git jack2 kparts5 qt5-x11extras make patch pkg-config qt5-webengine && \
     pacman -Scc
 
 
