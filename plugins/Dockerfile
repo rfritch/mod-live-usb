@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER builder
 ENV HOME /home/$USER
 
-ARG PLAT=x86_64
+ARG PLAT=generic-x86_64
 
 
 RUN mkdir -p /home/builder/mod-workdir/x86_64/build/crosstool-ng-1.25.0/build/tarballs
