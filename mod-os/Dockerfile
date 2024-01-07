@@ -15,10 +15,10 @@ COPY buildroot/busybox.config $HOME/busybox.config
 COPY buildroot/mod-os-config.patch $HOME/mod-os-config.patch
 
 # replace files 
-COPY buildroot/.common $HOME/.common
-copy buildroot/generic-x86_64_defconfig   %HOME/plugins-dep/configs/generic-x86_64_defconfig
+#COPY buildroot/.common $HOME/.common
+#copy buildroot/generic-x86_64_defconfig   %HOME/plugins-dep/configs/generic-x86_64_defconfig
 
-#RUN patch -p1 -i $HOME/mod-os-config.patch
+RUN patch -p1 -i $HOME/mod-os-config.patch
 
 
 # copy and activate packages
