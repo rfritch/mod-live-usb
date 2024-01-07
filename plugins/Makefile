@@ -19,7 +19,7 @@ PROJECTS += die-plugins
 
 PROJECTS += dragonfly-reverb
 PROJECTS += fluidplug
-PROJECTS += fomp
+#PROJECTS += fomp
 PROJECTS += freaked
 PROJECTS += guitarix
 PROJECTS += guitarix-studiopre

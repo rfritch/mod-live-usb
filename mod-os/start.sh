@@ -105,6 +105,7 @@ JACK_NETJACK_PORT=29000
 # using systemd for audio startup, triggered by ourselves
 else
 
+    
     PLAT=${PLAT:=x86_64}
     EXEC=exec
 
@@ -132,19 +133,19 @@ if [ -e /dev/shm/sys_msgs ]; then
 fi
 
 # soundcard (capture)
-if [ -e /dev/snd/pcmC${SOUNDCARD_ID}D0c ]; then
-    NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0c"
-fi
+#if [ -e /dev/snd/pcmC${SOUNDCARD_ID}D0c ]; then
+#    NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0c"
+#fi
 
 # soundcard (playback)
-if [ -e /dev/snd/pcmC${SOUNDCARD_ID}D0p ]; then
-    NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0p"
-fi
+#if [ -e /dev/snd/pcmC${SOUNDCARD_ID}D0p ]; then
+#    NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0p"
+#fi
 
 # soundcard (control)
-if [ -e /dev/snd/controlC${SOUNDCARD_ID} ]; then
-    NSPAWN_OPTS+=" --bind=/dev/snd/controlC${SOUNDCARD_ID}"
-fi
+#if [ -e /dev/snd/controlC${SOUNDCARD_ID} ]; then
+#    NSPAWN_OPTS+=" --bind=/dev/snd/controlC${SOUNDCARD_ID}"
+#fi
 
 # pedalboards
 if [ -e /mnt/pedalboards ]; then
@@ -172,9 +173,27 @@ else
     else
         sudo mkdir -p /mnt/mod-live-usb
     fi
-    sudo mount $(realpath $(pwd)/rootfs.ext2) /mnt/mod-live-usb
+
+    if ![ -e /mnt/mod-live-usb ]; then
+        sudo mount $(realpath $(pwd)/rootfs.ext2) /mnt/mod-live-usb
+    fi
+    
     NSPAWN_OPTS+=" --directory=/mnt/mod-live-usb"
 fi
+
+
+
+for SOUNDCARD_ID in {0..5}; do
+    if [ -e /dev/snd/controlC${SOUNDCARD_ID} ]; then
+        NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0c "
+        NSPAWN_OPTS+=" --bind=/dev/snd/pcmC${SOUNDCARD_ID}D0p "
+        NSPAWN_OPTS+=" --bind=/dev/snd/controlC${SOUNDCARD_ID} "
+    fi
+done
+
+# Check the generated NSPAWN_OPTS
+echo "$NSPAWN_OPTS"
+
 
 echo "starting up, pwd is $(pwd)"
 
