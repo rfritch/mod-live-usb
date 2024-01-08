@@ -18,7 +18,7 @@ PROJECTS += die-plugins
 #PROJECTS += dpf-plugins
 
 PROJECTS += dragonfly-reverb
-PROJECTS += fluidplug
+#PROJECTS += fluidplug
 #PROJECTS += fomp
 PROJECTS += freaked
 PROJECTS += guitarix
