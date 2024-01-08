@@ -92,7 +92,7 @@ PROJECTS += x42-mtc
 PROJECTS += x42-stepseq
 PROJECTS += x42-tinygain
 PROJECTS += x42-xfade
-PROJECTS += x42-zconvo
+#PROJECTS += x42-zconvo
 # not in stable/prod, but still useful for many reasons
 PROJECTS += crypt
 PROJECTS += bolliedelayxt
