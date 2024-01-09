@@ -106,7 +106,7 @@ JACK_NETJACK_PORT=29000
 else
 
     
-    PLAT=${PLAT:=x86_64}
+    PLAT=${PLAT:=generic-x86_64}
     EXEC=exec
 
 fi
@@ -174,9 +174,9 @@ else
         sudo mkdir -p /mnt/mod-live-usb
     fi
 
-    if ![ -e /mnt/mod-live-usb ]; then
+    #if ![ -e /mnt/mod-live-usb ]; then
         sudo mount $(realpath $(pwd)/rootfs.ext2) /mnt/mod-live-usb
-    fi
+    #fi
     
     NSPAWN_OPTS+=" --directory=/mnt/mod-live-usb"
 fi
